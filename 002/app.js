@@ -35,6 +35,8 @@ const blackCars = data.map(e => e.id % 2 == 0 && e.type == 'car' ? { ...e, color
 const countName = data.map(e => e.name.length < 4 ? { ...e, name: e.name.padEnd(8, '*') } : { ...e });
 // console.log(countName);
 
+//==============================================FILTER 
+
 const filterType = data.filter(e => e.type !== 'animal');
 // console.log(filterType);
 
@@ -48,5 +50,35 @@ const manWithCar = data.filter(e => e.type == 'man' || e.type == 'car')
 // console.log(manWithCar);
 
 const six = data.filter(e => e.id !== 6);
-console.log(six);
+// console.log(six);
 
+
+// ============================================= SORTING
+const d10 = [...data];
+
+// d10.sort((a,b) => {
+//     if (a.name > b.name){
+//     return 1;
+// }
+//     if (a.name < b.name) {
+//     return -1;
+//     }
+//     return 0;
+// });
+
+d10.sort((a, b) => b.name.localeCompare(a.name));
+// console.log(d10);
+
+const d11 = [...data];
+d11.sort((a, b) => b.id - a.id);
+// console.log(d11);
+
+const d12 = [...data];
+d12.sort((a, b) => b.name.length - a.name.length);
+
+// console.log(d12);
+
+const d13 = [...data];
+d13.sort((a, b) => b.type != 'car' ? -1 : 1);
+
+console.log(d13);
