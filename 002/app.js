@@ -82,3 +82,4 @@ const d13 = [...data];
 d13.sort((a, b) => b.type != 'car' ? -1 : 1);
 
 console.log(d13);
+
