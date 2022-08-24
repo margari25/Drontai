@@ -2,14 +2,18 @@ import rand from '../../Functions/rand';
 
 function Dog() {
 
+    if (rand(0, 1)) {
+        return  null;
+    }
+
     return (
         <>
-            <h2 style={{
-                color: rand(0, 1) ? 'red' : 'blue',
-                fontSize: '140px'
+            <h2 className="h2" style={{
+                color: ['crimson', 'skyblue', 'orange'][rand(0, 2)],
+                fontSize: rand(0, 1) ? '140px' : null
             }}>
                 Dog {true ? 'jo' : 'no'}</h2>
-            <h3 className="dog">Big {rand(100, 999)}</h3>
+            <h3 className={rand(0, 1) ? 'dog' : 'cat'}>Big {rand(100, 999)}</h3>
         </>
     );
 }
