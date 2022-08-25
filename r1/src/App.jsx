@@ -1,5 +1,6 @@
 import './App.css';
 import Cat from './Components/004/Cat';
+import randomColor from './Functions/randomColor';
 
 const cats = [
     { id: 1, weight: 5, name: 'Murka' },
@@ -13,11 +14,13 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Lists</h1>
+                <h1> {
+                    [...'Dinozauras'].map((l, i) => <span key={i} style={{ color: randomColor() }}>{l}</span>)}
+                </h1>
                 <div className="container">
                     {
-                        [...cats].sort((a, b) => a.name.localeCompare(b.name)).map((cat, i) => <Cat i={i} key={cat.id} cat={cat} />)
-                    }
+                        [...cats].sort((a, b) => a.name.localeCompare(b.name)).map((cat, i) => cat.weight < 4 ? null : <Cat i={i} key={cat.name} cat={cat} />)}
+
                 </div>
                 {/* <div className="container">
                     <Cat catName="Pilkis" weight="20" />

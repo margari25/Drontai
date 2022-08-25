@@ -1,7 +1,12 @@
 function Cat({ cat, i }) {
     return (
         <>
-            <div style={{ backgroundColor: i % 2 ? 'crimson' : 'skyblue' }}>{cat.name} {cat.weight}</div>
+            <div style={{
+                backgroundColor: i % 2 ? 'crimson' : 'skyblue',
+                borderRadius: cat.weight > 4 ? '50%' : '0%',
+
+            }}>
+                {cat.name} {cat.weight}</div>
         </>
     )
 }
