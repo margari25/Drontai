@@ -9,7 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 2s cubic-bezier(.76,.06,.83,.67);
+      animation: App-logo-spin infinite 3s cubic-bezier(1, -0.78, .62, 1.53);
   }
 }
 
@@ -30,20 +30,39 @@
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+      transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform: rotate(360deg);
   }
 }
 
-.dog{
+.dog {
   letter-spacing: 5px;
 }
-.cat{
+
+.cat {
   letter-spacing: 10px;
 }
 
 h2.h2 {
-  font-size: 50px;
+  font-size: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container div {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: skyblue;
+  color: coral;
+  margin: 10px;
 }
