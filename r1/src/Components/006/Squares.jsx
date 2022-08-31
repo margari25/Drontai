@@ -7,6 +7,7 @@ function Squares() {
 
     const [sq, setSq] = useState([]);
     const [selected, setSelected] = useState(null)
+    const [sort, setSort] = useState(1);
 
     const add = () => {
         setSq(s => [...s, {
@@ -55,12 +56,12 @@ function Squares() {
     }
 
     const sorting = () => {
-        setSq(s => s.map(square => square.number === sortDesc() ? { ...square, show: sortAsc() } : { ...square, show: sortDesc() }));
-
+        setSq(s => [...s].sort((a, b) => sort * (a.number - b.number)));
+        setSort(s => s * -1);
     }
 
 
-    return (
+    return (         
         <>
             <h1 style={{ color: randomColor() }}> {selected} STATE 2/ {sq.filter(s => s.number < 300).length}</h1>
             <div className="container">
