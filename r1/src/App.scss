@@ -32,6 +32,7 @@
   from {
       transform: rotate(0deg);
   }
+
   to {
       transform: rotate(360deg);
   }
@@ -54,15 +55,29 @@ h2.h2 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
+  div {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: skyblue;
+      color: coral;
+      margin: 10px;
+  }
+
+  button {
+      margin: 40px 10px;
+  }
 }
 
-.container div {
+.kv {
   width: 100px;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: skyblue;
   color: coral;
   margin: 10px;
 }
@@ -70,7 +85,7 @@ h2.h2 {
 button {
   align-items: center;
   background-clip: padding-box;
-  background-color: #7dd827;
+  background-color: #fa6400;
   border: 1px solid transparent;
   border-radius: .25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
@@ -94,14 +109,17 @@ button {
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+
   &:hover,
   &:focus {
-      background-color: #5fa835;
+      background-color: #fb8332;
       box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   }
+
   &:hover {
       transform: translateY(-1px);
   }
+
   &:active {
       background-color: #c85000;
       box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
@@ -132,4 +150,26 @@ button {
       color: black;
       font-family: 'Courier New', Courier, monospace;
   }
-} 
+  select {
+      font-size: 28px;
+      padding: 5px;
+      border: none;
+      outline: none;
+      background-color: white;
+      font-weight: bold;
+      color: black;
+      font-family: 'Courier New', Courier, monospace;
+  }
+  button {
+      margin-top: 10px;
+  }
+
+  label {
+      cursor: pointer;
+      user-select: none;
+  }
+
+  input[type=checkbox] {
+      display: none;
+  }
+}

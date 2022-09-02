@@ -10,8 +10,8 @@ function Select() {
         { val: 40, name: 'Obelis' }
     ];
 
-    const [select, setSelect] = useState(8);
-    const [selects, setSelects] = useState();
+    const [select, setSelect] = useState('8');
+    const [selects, setSelects] = useState('10');
 
     return (
 
@@ -26,6 +26,7 @@ function Select() {
 
             </div>
             <div className="form-container">
+                <h2>{selectData.find(s => s.val === parseInt(selects))?.name}</h2>
                 <select value={selects} onChange={e => setSelects(e.target.value)}>
                     {
                         selectData.map(s => <option key={s.val} value={s.val}>{s.name}</option>)
