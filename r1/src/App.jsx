@@ -1,37 +1,46 @@
-import './App.scss';
+import { useEffect } from 'react';
 import { useState } from 'react';
-import Text from './Components/010/Text';
-import Two from './Components/010/Two';
-import InputText from './Components/010/InputText';
-import Show from './Components/010/Show';
+import './App.scss';
+import Kv from './Components/012/Kv';
+import randomKv from './Components/012/randomKv';
+
+const defaultCount = {one: 0, two: 0};
 
 function App() {
 
-    const [textNow, setTextNow] = useState('');
+    const [counts, setCounts] = useState(null);
+   
+    useEffect(() => {
+        const data = localStorage.getItem('counts_key');
+        if (null === data) {
+            setCounts(defaultCount);
+        } else {
+            setCounts(JSON.parse(data));
+        } 
+    }, []);
 
-    const [f1, setF1] = useState(false);
-    const [f2, setF2] = useState(false);
-
-    const [text1, setText1] = useState('');
+    useEffect(() => {
+        if (null === counts) {
+            return;
+        }
+        localStorage.setItem('counts_key', JSON.stringify(counts));
+    }, [counts]);
 
     return (
-        <>
-            <div className="App">
-                <header className="App-header">
-                    <h1>State Uplifting</h1>
-                    <h2>TEXT: {textNow}</h2>
-                    <Show text1={text1} />
-                    <InputText setText1={setText1} text1={text1} />
-                    <Text setTextNow={setTextNow} />
-                    <div className="container">
-                        {f1 ? <div className="kv"></div> : null}
-                        {f2 ? <div className="ap"></div> : null}
-                    </div>
-                    <Two setF1={setF1} setF2={setF2} />
-                </header>
-            </div>
-
-        </>
+        <div className="App">
+            <header className="App-header">
+                <h1>Local Store</h1>
+                <h2>ONE: {counts?.one}</h2>
+                <h2>TWO: {counts?.two}</h2>
+                <button onClick={() => setCounts(c => ({...c, one: c.one + 1}))}>One +</button>
+                <button onClick={() => setCounts(c => ({...c, two: c.two + 1}))}>Two +</button>
+                <button onClick={() => setCounts(c => ({...c, one: c.one - 1}))}>One -</button>
+                <button onClick={() => setCounts(c => ({...c, two: c.two - 1}))}>Two -</button>
+                <button onClick={() => setCounts(defaultCount)}>Reset</button>
+            {/* <Kv /> */}
+            <randomKv/>
+            </header>
+        </div>
     );
 }
 
