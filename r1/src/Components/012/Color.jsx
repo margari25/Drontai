@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import randColor from '../../Functions/randColor';
 
-function Kv() {
+function Color() {
 
     const [kv, setKv] = useState(null);
 
     useEffect(() => {
         const data = localStorage.getItem('kv');
         if (null === data) {
-            setKv([]);
+            setKv(randColor());
         } else {
             setKv(JSON.parse(data));
         } 
@@ -23,13 +24,11 @@ function Kv() {
     return (
         <>
         <div className="container">
-            {
-                kv?.map((_, i) => <div key={i}></div>)
-            }
+            <div style={{background: kv}}></div>
         </div>
-        <button onClick={() => setKv(k => [...k ?? [], ''])}>Add</button>
+        <button onClick={() => setKv(randColor())}>color</button>
         </>
     )
 }
 
-export default Kv;
+export default Color;

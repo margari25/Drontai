@@ -1,45 +1,28 @@
-import { useEffect } from 'react';
 import { useState } from 'react';
 import './App.scss';
-import Kv from './Components/012/Kv';
-import randomKv from './Components/012/randomKv';
-
-const defaultCount = {one: 0, two: 0};
+import DataPlus from './Components/012/DataPlus';
+import L1 from './Components/012/L1';
 
 function App() {
 
-    const [counts, setCounts] = useState(null);
-   
-    useEffect(() => {
-        const data = localStorage.getItem('counts_key');
-        if (null === data) {
-            setCounts(defaultCount);
-        } else {
-            setCounts(JSON.parse(data));
-        } 
-    }, []);
-
-    useEffect(() => {
-        if (null === counts) {
-            return;
-        }
-        localStorage.setItem('counts_key', JSON.stringify(counts));
-    }, [counts]);
+    const [stars, setStars] = useState('');
+    const [pluses, setPluses] = useState('');
+    const [minuses, setMinuses] = useState('');
 
     return (
         <div className="App">
+            <DataPlus.Provider value={{
+                pluses: pluses,
+                minuses: minuses
+            }}>
             <header className="App-header">
-                <h1>Local Store</h1>
-                <h2>ONE: {counts?.one}</h2>
-                <h2>TWO: {counts?.two}</h2>
-                <button onClick={() => setCounts(c => ({...c, one: c.one + 1}))}>One +</button>
-                <button onClick={() => setCounts(c => ({...c, two: c.two + 1}))}>Two +</button>
-                <button onClick={() => setCounts(c => ({...c, one: c.one - 1}))}>One -</button>
-                <button onClick={() => setCounts(c => ({...c, two: c.two - 1}))}>Two -</button>
-                <button onClick={() => setCounts(defaultCount)}>Reset</button>
-            {/* <Kv /> */}
-            <randomKv/>
+                <h1>Context</h1>
+                <L1 stars={stars} />
+                <button onClick={() => setStars(s => s + '*')}>ADD *</button>
+                <button onClick={() => setPluses(s => s + '+')}>ADD +</button>
+                <button onClick={() => setMinuses(s => s + '-')}>ADD -</button>
             </header>
+            </DataPlus.Provider>
         </div>
     );
 }
