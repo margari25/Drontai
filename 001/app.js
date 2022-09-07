@@ -18,7 +18,11 @@ const cats = [
     { name: 'Keris', weight: 3 }
 
 ];
-const newCats = cats.map(c => ({ ...c, weight: c.weight + 1 }));
+
+const newCats = cats.map(c => ({ ...c, weight: c.weight + 1 })); //grazina visa masyva
+console.log(newCats)
+
+const weight = [...cats].map(w =>w.weight +1); // grazina tik pakeistus kaciu svorius
 
 const randomWeightCats = cats.map(c => ({ ...c, weight: rand(3, 10) }));
 
