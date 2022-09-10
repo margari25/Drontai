@@ -22,73 +22,67 @@ const data2 = [
 ];
 
 
-// const addNull = data2.map(e => ({ ...e, list: [...e.list, 0] }));
+const addNull = data2.map(e => ({ ...e, list: [...e.list, 0] }));
 // // console.log(addNull);
 
-// data.forEach(d => console.log(d.name)); //nuskaitom objekta
+data.forEach(d => console.log(d.name)); //nuskaitom objekta
 
-// const toRed = data.map(e => e.color == 'red' ? { ...e, color: 'orange' } : { ...e });
+const toRed = data.map(e => e.color == 'red' ? { ...e, color: 'orange' } : { ...e });
 // // console.log(toRed);
 
-// const blackCars = data.map(e => e.id % 2 == 0 && e.type == 'car' ? { ...e, color: 'black' } : { ...e });
+const blackCars = data.map(e => e.id % 2 == 0 && e.type == 'car' ? { ...e, color: 'black' } : { ...e });
 // // console.log(blackCars);
 
-// const countName = data.map(e => e.name.length < 4 ? { ...e, name: e.name.padEnd(8, '*') } : { ...e });
+const countName = data.map(e => e.name.length < 4 ? { ...e, name: e.name.padEnd(8, '*') } : { ...e });
 // // console.log(countName);
 
 const d4 = data2.map(e => ({...e, list: [...e.list, 0]}));
 
 
-
-// const animal = data.map(e=> e.type== 'man' || e.type=='car'? {...e, }));
-// console.log(animal)
-
-
 // //==============================================FILTER 
 
-// const filterType = data.filter(e => e.type !== 'animal');
+const filterType = data.filter(e => e.type !== 'animal');
 // // console.log(filterType);
 
-// // data.filter(e => e.type =='animal').forEach(d => console.log(d.name));
+data.filter(e => e.type =='animal').forEach(d => console.log(d.name));
 
-// const filterGreen = data.filter(e => e.type == 'animal' && e.color == 'green');
+const filterGreen = data.filter(e => e.type == 'animal' && e.color == 'green');
 // // console.log(filterGreen);
 
-// const manWithCar = data.filter(e => e.type == 'man' || e.type == 'car')
-//     .map(e => e.color !== 'red' ? { ...e, color: 'black' } : { ...e });
+const manWithCar = data.filter(e => e.type == 'man' || e.type == 'car')
+    .map(e => e.color !== 'red' ? { ...e, color: 'black' } : { ...e });
 // // console.log(manWithCar);
 
-// const six = data.filter(e => e.id !== 6);
+const six = data.filter(e => e.id !== 6);
 // // console.log(six);
 
 
 // // ============================================= SORTING
-// const d10 = [...data];
+const d10 = [...data];
 
-// // d10.sort((a,b) => {
-// //     if (a.name > b.name){
-// //     return 1;
-// // }
-// //     if (a.name < b.name) {
-// //     return -1;
-// //     }
-// //     return 0;
-// // });
+// d10.sort((a,b) => {
+//     if (a.name > b.name){
+//     return 1;
+// }
+//     if (a.name < b.name) {
+//     return -1;
+//     }
+//     return 0;
+// });
 
-// d10.sort((a, b) => b.name.localeCompare(a.name));
-// // console.log(d10);
+d10.sort((a, b) => b.name.localeCompare(a.name));
+console.log(d10);
 
-// const d11 = [...data];
-// d11.sort((a, b) => b.id - a.id);
-// // console.log(d11);
+const d11 = [...data];
+ d11.sort((a, b) => b.id - a.id);
+console.log(d11);
 
-// const d12 = [...data];
-// d12.sort((a, b) => b.name.length - a.name.length);
+const d12 = [...data];
+d12.sort((a, b) => b.name.length - a.name.length);
 
 // // console.log(d12);
 
-// const d13 = [...data];
-// d13.sort((a, b) => b.type != 'car' ? -1 : 1);
-
+const d13 = [...data];
+d13.sort((a, b) => b.type != 'car' ? -1 : 1);
 // console.log(d13);
 
