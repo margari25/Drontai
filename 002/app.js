@@ -83,6 +83,6 @@ d12.sort((a, b) => b.name.length - a.name.length);
 // // console.log(d12);
 
 const d13 = [...data];
-d13.sort((a, b) => b.type != 'car' ? -1 : 1);
+d13.sort((_, b) => b.type != 'car' ? -1 : 1);
 // console.log(d13);
 
