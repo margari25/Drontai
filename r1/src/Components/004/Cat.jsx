@@ -12,3 +12,21 @@ function Cat({ cat, i }) {
 }
 
 export default Cat;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

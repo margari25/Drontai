@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 // import Dog from './Components/003/Dog';
 // import Cat from './Components/003/Cat';
 import Racoon from './Components/003/Racoon';

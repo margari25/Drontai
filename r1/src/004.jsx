@@ -10,6 +10,20 @@ const cats = [
     { id: 5, weight: 5, name: 'Brisius' }
 ];
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function App() {
     return (
         <div className="App">
