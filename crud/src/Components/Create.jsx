@@ -7,18 +7,21 @@ function Create() {
     const [thing, setThing] = useState('');
     const [color, setColor] = useState('#000000');
     const [cs, setCs] = useState(false);
+    const [texture, setTexture] = useState(0);
 
-    const { setCreateData } = useContext(DataContext);
+    const { setCreateData, textures } = useContext(DataContext);
 
     const add = () => {
         setCreateData({
             thing,
             color,
-            cs: cs ? 1 : 0
+            cs: cs ? 1 : 0,
+            texture
         });
         setThing('');
         setColor('#000000')
         setCs(false);
+        setTexture(0);
     }
 
     return (
@@ -40,6 +43,19 @@ function Create() {
                     <label htmlFor="sc">Circle or Square</label>
                     <div className="c"></div>
                     <div className="s"></div>
+                </div>
+                <div className="form">
+                    <label>Texture</label>
+                    <div className="cb-line">
+                        {
+                            textures.map(t => <span key={t.id}>
+                                <input id={'c_' + t.id} type="checkbox" 
+                                checked={t.id === texture} onChange={() => setTexture(t.id)}>
+                                </input>
+                                <label htmlFor={'c_' + t.id}>{t.title}</label>
+                            </span>)
+                        }
+                    </div>
                 </div>
                 <div className="form">
                     <button className="blue" onClick={add}>Make Thing</button>
