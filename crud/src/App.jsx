@@ -13,10 +13,10 @@ import rand from './Functions/rand';
 const key = 'things_shelf';
 
 const textures = [
-  { id: 1, title: 'Wood' },
-  { id: 2, title: 'Metal' },
-  { id: 3, title: 'Paper' },
-  { id: 4, title: 'Stone' }
+  {id: 1, title: 'Wood'},
+  {id: 2, title: 'Metal'},
+  {id: 3, title: 'Paper'},
+  {id: 4, title: 'Stone'}
 ]
 
 function App() {
@@ -75,15 +75,15 @@ function App() {
     makeMsg('The THING was restored!', 'info');
   }, [restoreData]);
 
-  //RESTORE after soft delete
-  useEffect(() => {
-    if (null === destroyData) {
-      return;
-    }
-    destroy(key, destroyData.id);
-    setLastUpdate(Date.now());
-    makeMsg('The THING was removed!', 'info');
-  }, [destroyData]);
+    //RESTORE after soft delete
+    useEffect(() => {
+      if (null === destroyData) {
+        return;
+      }
+      destroy(key, destroyData.id);
+      setLastUpdate(Date.now());
+      makeMsg('The THING was removed!', 'info');
+    }, [destroyData]);
 
   //EDIT
   useEffect(() => {
